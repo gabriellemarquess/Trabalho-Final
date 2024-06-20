@@ -1,0 +1,94 @@
+Classes, Propriedades e Métodos
+
+1.	Classe Doacao
+o	Descrição: Representa uma doação feita por um doador. Contém informações básicas sobre a doação.
+o	Propriedades:
+	id: int - Identificador único da doação.
+	tipo: str - Tipo da doação (dinheiro, alimentos, roupas, etc.).
+	quantidade: float - Quantidade doada.
+	data: date - Data da doação.
+o	Métodos:
+	__init__(self, id: int, tipo: str, quantidade: float, data: date) - Construtor da classe.
+	get_detalhes(self) -> str - Retorna uma string com os detalhes da doação.
+
+2.	Classe Doador
+o	Descrição: Representa um doador que faz doações ao sistema.
+o	Propriedades:
+	id: int - Identificador único do doador.
+	nome: str - Nome do doador.
+	email: str - Email do doador.
+o	Métodos:
+	__init__(self, id: int, nome: str, email: str) - Construtor da classe.
+	get_contato(self) -> str - Retorna uma string com os detalhes de contato do doador.
+
+3.	Classe SistemaDeGerenciamentoDeDoacoes
+o	Descrição: Gerencia as doações e os doadores, centralizando as operações do sistema.
+o	Propriedades:
+	doacoes: List[Doacao] - Lista de doações registradas.
+	doadores: List[Doador] - Lista de doadores registrados.
+o	Métodos:
+	__init__(self) - Construtor da classe que inicializa as listas de doações e doadores.
+	registrar_doacao(self, doacao: Doacao) - Adiciona uma nova doação à lista de doações.
+	registrar_doador(self, doador: Doador) - Adiciona um novo doador à lista de doadores.
+	calcular_total_doacoes(self) -> float - Calcula e retorna o total de doações recebidas.
+	gerar_relatorio_doacoes(self) -> str - Gera um relatório detalhado das doações.
+
+4.	Classe Notificador
+o	Descrição: Responsável por enviar notificações e confirmações de doações aos doadores.
+o	Propriedades:
+	servidor_email: str - Endereço do servidor de email usado para enviar notificações.
+o	Métodos:
+	__init__(self, servidor_email: str) - Construtor da classe.
+	enviar_confirmacao(self, doador: Doador, doacao: Doacao) - Envia uma confirmação de doação ao doador.
+
+Relações entre as Classes
+
+•	Relação entre Doacao e Doador:
+	Um doador pode fazer múltiplas doações, mas cada doação está associada a um único doador. Esta relação pode ser modelada através de um identificador do doador dentro da classe Doacao.
+•	Relação entre SistemaDeGerenciamentoDeDoacoes e Doacao/Doador:
+	A classe SistemaDeGerenciamentoDeDoacoes contém listas de objetos Doacao e Doador, representando a agregação de doações e doadores dentro do sistema.
+•	Relação entre SistemaDeGerenciamentoDeDoacoes e Notificador:
+	A classe SistemaDeGerenciamentoDeDoacoes pode utilizar a classe Notificador para enviar confirmações de doação aos doadores.
+
+Exemplo de Descrição de Diagrama de Classes
+Exemplo
+
+1.	Classe Doacao
+o	id: int
+o	tipo: str
+o	quantidade: float
+o	data: date
+o	Métodos:
+	__init__(self, id: int, tipo: str, quantidade: float, data: date)
+	get_detalhes(self) -> str
+
+2.	Classe Doador
+o	id: int
+o	nome: str
+o	email: str
+o	Métodos:
+	__init__(self, id: int, nome: str, email: str)
+	get_contato(self) -> str
+
+3.	Classe SistemaDeGerenciamentoDeDoacoes
+o	doacoes: List[Doacao]
+o	doadores: List[Doador]
+o	Métodos:
+	__init__(self)
+	registrar_doacao(self, doacao: Doacao)
+	registrar_doador(self, doador: Doador)
+	calcular_total_doacoes(self) -> float
+	gerar_relatorio_doacoes(self) -> str
+
+4.	Classe Notificador
+o	servidor_email: str
+o	Métodos:
+	__init__(self, servidor_email: str)
+	enviar_confirmacao(self, doador: Doador, doacao: Doacao)
+
+Relações
+•	Doador -> Doacao: Um Doador pode estar associado a várias Doacao.
+•	SistemaDeGerenciamentoDeDoacoes -> Doacao: SistemaDeGerenciamentoDeDoacoes contém uma lista de Doacao.
+•	SistemaDeGerenciamentoDeDoacoes -> Doador: SistemaDeGerenciamentoDeDoacoes contém uma lista de Doador.
+•	SistemaDeGerenciamentoDeDoacoes -> Notificador: SistemaDeGerenciamentoDeDoacoes utiliza Notificador para enviar confirmações.
+
