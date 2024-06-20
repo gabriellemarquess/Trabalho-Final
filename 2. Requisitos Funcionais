@@ -1,0 +1,36 @@
+RF01. Interface de Recepção de Doações:
+•	O sistema deve fornecer uma tela de entrada onde os doadores possam registrar suas doações.
+•	Deve permitir a especificação do tipo de doação (dinheiro, alimentos, roupas, etc.).
+•	Deve permitir a entrada da quantidade da doação.
+•	Deve permitir a entrada da data da doação.
+•	Deve validar as entradas para garantir que todas as informações necessárias sejam fornecidas e estejam no formato correto.
+
+RF02. Armazenamento de Informações de Doações:
+•	O sistema deve armazenar todas as informações sobre as doações recebidas em um banco de dados ou arquivo texto.
+•	Cada doação deve ser registrada com detalhes como tipo de doação, quantidade, data e identificador único.
+•	Deve garantir a integridade e segurança dos dados armazenados.
+•	Deve permitir a recuperação e análise posterior das informações armazenadas.
+
+RF03. Cálculo do Total de Doações:
+•	O sistema deve ser capaz de calcular o total de doações recebidas, somando todas as contribuições registradas.
+•	Deve permitir a visualização do total de doações, categorizado por tipo de doação (ex.: total de dinheiro, total de alimentos).
+•	Deve atualizar automaticamente o total de doações sempre que uma nova doação for registrada.
+
+RF04. Visualização e Relatórios:
+•	O sistema deve fornecer uma interface onde os administradores possam visualizar todas as doações registradas.
+•	Deve ser possível gerar relatórios detalhados sobre as doações, incluindo filtros por tipo de doação, data e quantidade.
+•	Deve permitir a exportação dos dados de doações para formatos comuns, como CSV ou PDF.
+
+RF05. Notificações e Confirmações:
+•	O sistema deve enviar confirmações aos doadores após o registro da doação, via email ou outra forma de comunicação.
+•	Deve ser possível configurar notificações para alertar os administradores sobre novas doações ou quando certos marcos de doação forem alcançados (ex.: total de doações ultrapassando um determinado valor).
+
+RF06. Gestão de Usuários:
+•	O sistema deve permitir a criação e gestão de contas de usuários, diferenciando entre doadores e administradores.
+•	Deve incluir funcionalidades de autenticação e autorização para garantir que apenas usuários autorizados possam acessar e gerenciar certas funcionalidades do sistema.
+•	Deve registrar logs de atividades dos usuários para auditoria e segurança.
+
+RF07. Escalabilidade e Manutenção:
+•	O sistema deve ser projetado para ser escalável, suportando um grande número de doações e usuários simultaneamente.
+•	Deve incluir documentação clara e detalhada sobre o sistema, incluindo guias de instalação, configuração e manutenção.
+•	Deve permitir atualizações e melhorias contínuas sem interromper seu funcionamento principal.
