@@ -1,0 +1,121 @@
+import java.util.Date;
+
+public class Doacao {
+    private int id;
+    private String tipo;
+    private float quantidade;
+    private Date data;
+
+    public Doacao(int id, String tipo, float quantidade, Date data) {
+        this.id = id;
+        this.tipo = tipo;
+        this.quantidade = quantidade;
+        this.data = data;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public float getQuantidade() {
+        return quantidade;
+    }
+
+    public Date getData() {
+        return data;
+    }
+}
+
+public class Doador {
+    private int id;
+    private String nome;
+    private String email;
+
+    public Doador(int id, String nome, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SistemaDeGerenciamentoDeDoacoes {
+    private List<Doacao> doacoes;
+    private List<Doador> doadores;
+
+    public SistemaDeGerenciamentoDeDoacoes() {
+        this.doacoes = new ArrayList<>();
+        this.doadores = new ArrayList<>();
+    }
+
+    public void registrarDoacao(Doacao doacao) {
+        doacoes.add(doacao);
+    }
+
+    public void registrarDoador(Doador doador) {
+        doadores.add(doador);
+    }
+
+    public float calcularTotalDoacoes() {
+        float total = 0;
+        for (Doacao doacao : doacoes) {
+            total += doacao.getQuantidade();
+        }
+        return total;
+    }
+
+    public void gerarRelatorioDoacoes() {
+        System.out.println("=== Relatório de Doações ===");
+        for (Doacao doacao : doacoes) {
+            System.out.println("ID: " + doacao.getId());
+            System.out.println("Tipo: " + doacao.getTipo());
+            System.out.println("Quantidade: " + doacao.getQuantidade());
+            System.out.println("Data: " + doacao.getData());
+            System.out.println("===========================");
+        }
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de utilização do sistema
+        SistemaDeGerenciamentoDeDoacoes sistema = new SistemaDeGerenciamentoDeDoacoes();
+
+        // Criando doadores e doações de exemplo
+        Doador doador1 = new Doador(1, "João Silva", "joao@email.com");
+        Doador doador2 = new Doador(2, "Maria Souza", "maria@email.com");
+
+        Doacao doacao1 = new Doacao(1, "Alimentos", 100.0f, new Date());
+        Doacao doacao2 = new Doacao(2, "Roupas", 50.0f, new Date());
+
+        // Registrando doadores e doações no sistema
+        sistema.registrarDoador(doador1);
+        sistema.registrarDoador(doador2);
+
+        sistema.registrarDoacao(doacao1);
+        sistema.registrarDoacao(doacao2);
+
+        // Calculando e exibindo o total de doações
+        float totalDoacoes = sistema.calcularTotalDoacoes();
+        System.out.println("Total de Doações: " + totalDoacoes);
+
+        // Gerando e exibindo o relatório de doações
+        sistema.gerarRelatorioDoacoes();
+    }
+}
